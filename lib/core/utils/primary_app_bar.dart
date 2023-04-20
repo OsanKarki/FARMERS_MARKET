@@ -1,55 +1,48 @@
 import 'package:flutter/material.dart';
 
-
-
 import 'package:flutter/material.dart';
 
 class PrimaryAppBar extends StatelessWidget with PreferredSizeWidget {
-final String? title;
+  final String? title;
 
-  const PrimaryAppBar({Key? key, this.title,}) : super(key: key);
+  const PrimaryAppBar({
+    Key? key,
+    this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    return AppBar(iconTheme:const IconThemeData(color: Colors.black,
-        size: 33) ,
-
+    return AppBar(
+        iconTheme: const IconThemeData(color: Colors.black, size: 33),
         centerTitle: true,
         backgroundColor: Colors.white,
-
         title: Padding(
-          padding: const EdgeInsets.fromLTRB(0,20,0,0),
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: RichText(
               text: const TextSpan(
-                text: 'Farm',
+            text: 'Farm',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: Colors.black,
+            ),
+            children: [
+              TextSpan(
+                text: 'Center',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
-                  color: Colors.black,
+                  color: Color(0xff1BA37D),
                 ),
-                children: [
-                  TextSpan(
-                    text: 'Center',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
-
-
-
-              )
-          ),
-        )
-    );
+              ),
+            ],
+          )),
+        ));
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 //     return AppBar(

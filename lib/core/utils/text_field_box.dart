@@ -14,11 +14,13 @@ class TextFieldBox extends StatelessWidget {
           hintText: hint,
           hintStyle: const TextStyle(color: Color(0xffB6B6B6)),
           focusedBorder: OutlineInputBorder(
+
               borderRadius: BorderRadius.circular(11),
               borderSide: const BorderSide(color: Color(0xFF35BC88),width: 1.6)),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(11),
             borderSide: const BorderSide(
+
               width: 1.6,
             ),
           ),

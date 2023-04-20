@@ -58,12 +58,12 @@ class WelcomePage extends StatelessWidget {
               ButtonWidgets(
                 text: 'Login', onPressed: () {
                   Navigator.pushNamed(context, LoginPage.route);
-              },
+              }, borderRadius: null,
               ),//login-button
               ButtonWidgets(
                 text: 'Signup', onPressed: () {
                   Navigator.pushNamed(context, SignUpPage.route);
-              },
+              }, borderRadius: null,
               ),//signup button
             ],
           ),

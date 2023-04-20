@@ -90,12 +90,13 @@ class LoginPage extends StatelessWidget {
           ),
           Center(
             child: ButtonWidgets(
+             
               text: 'Login',
               onPressed: () {
                 Navigator.pushNamed(context, HomePage.route);
               },
               height: 45,
-              width: 265,
+              width: 265, borderRadius: 20,
             ),
           ),
           const SizedBox(
