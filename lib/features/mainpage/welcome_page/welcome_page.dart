@@ -3,7 +3,7 @@ import 'package:agriculture_app/features/auth/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../core/utils/button.dart';
+import '../../../core/utils/button.dart';
 
 class WelcomePage extends StatelessWidget {
   static const route = 'WelcomePage';

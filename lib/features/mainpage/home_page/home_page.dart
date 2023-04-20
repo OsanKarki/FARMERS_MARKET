@@ -1,10 +1,11 @@
 import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/color_switch_text.dart';
-import 'package:agriculture_app/core/utils/text_field_box.dart';
+import 'package:agriculture_app/features/mainpage/home_page/home_page2.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/utils/primary_app_bar.dart';
-import 'drawer/drawer_Page.dart';
+import '../../../core/utils/primary_app_bar.dart';
+import '../../../core/widgets/home_page_text_field.dart';
+import '../drawer/drawer_Page.dart';
 
 class HomePage extends StatefulWidget {
   static const route = 'HomePage';
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? valueChoose;
+  String? listValue;
   String? districtValue;
   String? municipalitiesvalue;
   String? wardValue;
@@ -63,10 +64,6 @@ class _HomePageState extends State<HomePage> {
     "11",
     "12",
     "13",
-    "13",
-    "13",
-    "13",
-    "13",
     "14",
     "15",
     "16",
@@ -81,26 +78,32 @@ class _HomePageState extends State<HomePage> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  const CircleAvatar(
-                    backgroundColor: Color(0xff35BC88),
-                    radius: 17,
-                    child: Text(
-                      '1',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700),
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Stack(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(left: 200, top: 10),
+                    child: Divider(
+                      thickness: 2,
+                      color: Color(0xff8DD9BC),
                     ),
                   ),
-                  Container(
-                    height: 2,
-                    width: 180,
-                    color: const Color(0xff8DD9BC),
+                  Center(
+                    child: CircleAvatar(
+                      backgroundColor: Color(0xff35BC88),
+                      radius: 17,
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -120,46 +123,50 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Text(
                       'State',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0, right: 0),
-                      child: Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 1.6),
-                          borderRadius: BorderRadius.circular(11),
+                    Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        boxShadow: [],
+                        border: Border.all(color: Colors.black, width: 1.6),
+                        borderRadius: BorderRadius.circular(11),
+                      ),
+                      child: DropdownButton(
+                        borderRadius: BorderRadius.circular(10),
+                        dropdownColor: const Color(0xff35BC88),
+                        underline: const SizedBox(),
+                        isExpanded: true,
+                        hint: const Text(''),
+                        icon: const Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.black,
                         ),
-                        child: DropdownButton(
-                          dropdownColor: Color(0xff35BC88),
-                          underline: SizedBox(),
-                          isExpanded: true,
-                          hint: const Text(''),
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.black,
-                          ),
-                          iconSize: 36,
-                          value: valueChoose,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 19,
-                          ),
-                          onChanged: (newValue) {
-                            setState(() {
-                              valueChoose = newValue as String?;
-                            });
-                          },
-                          items: listItem.map((valueItem) {
-                            return DropdownMenuItem(
-                              value: valueItem,
-                              child: Text(valueItem),
-                            );
-                          }).toList(),
+                        iconSize: 36,
+                        value: listValue,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 19,
                         ),
+                        onChanged: (newValue) {
+                          setState(() {
+                            listValue = newValue;
+                          });
+                        },
+                        items: listItem.map((listValue) {
+                          return DropdownMenuItem(
+                            value: listValue,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 7),
+                              child: Text(listValue),
+                            ),
+                          );
+                        }).toList(),
                       ),
                     )
                   ],
@@ -176,9 +183,10 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Text(
                       'District',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Padding(
@@ -190,6 +198,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(11),
                         ),
                         child: DropdownButton(
+                          borderRadius: BorderRadius.circular(10),
                           dropdownColor: const Color(0xff35BC88),
                           underline: const SizedBox(),
                           isExpanded: true,
@@ -212,7 +221,11 @@ class _HomePageState extends State<HomePage> {
                           items: district.map((districtValue) {
                             return DropdownMenuItem(
                               value: districtValue,
-                              child: Text(districtValue),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(districtValue),
+                              ),
                             );
                           }).toList(),
                         ),
@@ -232,9 +245,10 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Text(
                       'Municipality',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Padding(
@@ -246,6 +260,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(11),
                         ),
                         child: DropdownButton(
+                          borderRadius: BorderRadius.circular(10),
                           dropdownColor: const Color(0xff35BC88),
                           underline: const SizedBox(),
                           isExpanded: true,
@@ -268,7 +283,11 @@ class _HomePageState extends State<HomePage> {
                           items: municipalty.map((municipalitiesvalue) {
                             return DropdownMenuItem(
                               value: municipalitiesvalue,
-                              child: Text(municipalitiesvalue),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(municipalitiesvalue),
+                              ),
                             );
                           }).toList(),
                         ),
@@ -288,9 +307,10 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Text(
                       'Ward No',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Padding(
@@ -302,6 +322,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(11),
                         ),
                         child: DropdownButton(
+                          borderRadius: BorderRadius.circular(10),
                           dropdownColor: const Color(0xff35BC88),
                           underline: const SizedBox(),
                           isExpanded: true,
@@ -324,7 +345,11 @@ class _HomePageState extends State<HomePage> {
                           items: wardNo.map((wardValue) {
                             return DropdownMenuItem(
                               value: wardValue,
-                              child: Text(wardValue),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(wardValue),
+                              ),
                             );
                           }).toList(),
                         ),
@@ -334,49 +359,22 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 100,
+            const HomePageTextField(
+              text: 'Toll',
               width: 300,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Toll',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-
-                        hintStyle: const TextStyle(color: Color(0xffB6B6B6)),
-                        focusedBorder: OutlineInputBorder(
-
-                            borderRadius: BorderRadius.circular(11),
-                            borderSide: const BorderSide(color: Color(0xFF35BC88),width: 1.6)),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: const BorderSide(
-
-                            width: 1.6,
-                          ),
-                        ),
-                      ),
-                    )
-
-                  ],
-                ),
-              ),
+              height: 100,
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 60),
-              child: ButtonWidgets(text: 'Continue', onPressed: () {  }, borderRadius: 20,width: 265,),
+              child: ButtonWidgets(
+                text: 'Continue',
+                onPressed: () {
+                  Navigator.pushNamed(context, HomePage2.route);
+                },
+                borderRadius: 20,
+                width: 265,
+              ),
             ),
-
           ],
         ),
       ),
