@@ -1,3 +1,4 @@
+import 'package:agriculture_app/features/auth/login_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_sendtoserver_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_setting_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/drawer_localdata_page.dart';
@@ -5,8 +6,21 @@ import 'package:agriculture_app/features/mainpage/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/drawer_list_tile.dart';
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
+
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,32 +51,48 @@ class NavBar extends StatelessWidget {
           ),
 
           DrawerListTile(
+        onTap: () {
+      _onItemTapped(1);
+      Navigator.pushNamed(context, HomePage.route);
+
+
+            },
+            isActive: _selectedIndex == 0,
             text: 'home',
             imageAsset: 'assets/home.png',
+
+          ),
+          DrawerListTile(
+            isActive: _selectedIndex == 1,
+            text: 'Local Data',
+            imageAsset: 'assets/duckicon.png',
             onTap: () {
-              Navigator.pushNamed(context, HomePage.route);
+              _onItemTapped(1);
+              Navigator.pushNamed(context, DrawerLocalDataPage.route);
+
+
+            },
+
+          ),
+          DrawerListTile(
+            isActive: _selectedIndex == 2,
+            text: 'Send to Server',
+            imageAsset: 'assets/cloud.png',
+            onTap: () {
+              _onItemTapped(2);
+              Navigator.pushNamed(context, DrawerSendtoServerPage.route);
+
 
             },
           ),
           DrawerListTile(
-            text: 'Local Data',
-            imageAsset: 'assets/duckicon.png',
-            onTap: () {
-              Navigator.pushNamed(context, DrawerLocalDataPage.route);
-            },
-          ),
-          DrawerListTile(
-            text: 'Send to Server',
-            imageAsset: 'assets/cloud.png',
-            onTap: () {
-              Navigator.pushNamed(context, DrawerSendtoServerPage.route);
-            },
-          ),
-          DrawerListTile(
+            isActive: _selectedIndex == 3,
             text: 'Settings',
             imageAsset: 'assets/setting.png',
             onTap: () {
-              Navigator.pushNamed(context, DrawerSettingPage.route);
+              _onItemTapped(3);
+              Navigator.pushNamed(context, DrawerSendtoServerPage.route);
+
 
             },
           ),
@@ -70,9 +100,15 @@ class NavBar extends StatelessWidget {
             height: 300,
           ),
           DrawerListTile(
+            isActive:_selectedIndex == 4,
             text: 'Logout',
             imageAsset: 'assets/logout.png',
-            onTap: () {},
+            onTap: () {
+              _onItemTapped(4);
+              Navigator.pushNamed(context, LoginPage.route);
+
+
+            },
           ),
         ]),
       ),

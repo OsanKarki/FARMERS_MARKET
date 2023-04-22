@@ -2,41 +2,40 @@ import 'package:flutter/material.dart';
 
 
 
-class ButtonWidgets extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final String? text;
   final VoidCallback onPressed;
   final double height;
-  final double width;
+  final double? width;
   final double? borderRadius;
 
   static const double defaultBorderRadius = 9;
 
 
-  const ButtonWidgets({
+  const PrimaryButton({
    required this.text,
     required this.onPressed,
-    this.height = 45,
-    this.width = 117,
+    this.height = 15,
+    this.width ,
+    this.borderRadius=10,
     super.key,
-    required this.borderRadius,
   });
 
 
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor:  const Color(0xff35BC88),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? defaultBorderRadius),),
+    return SizedBox(
+      width: width??MediaQuery.of(context).size.width,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(padding:EdgeInsets.symmetric(vertical: height) ,
+          backgroundColor:  const Color(0xff35BC88),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? defaultBorderRadius),),
+        ),
+        child: Center(child: Text(text!)),
       ),
-      child: SizedBox(
-
-          height: height,
-          width: width,
-          child: Center(child: Text(text!))),
     );
   }
 }

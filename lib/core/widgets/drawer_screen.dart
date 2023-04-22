@@ -60,7 +60,8 @@ class MyPage extends StatelessWidget {
   final String title;
   final int selectedIndex;
 
-  const MyPage({Key? key, required this.title, required this.selectedIndex}) : super(key: key);
+  const MyPage({Key? key, required this.title, required this.selectedIndex})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

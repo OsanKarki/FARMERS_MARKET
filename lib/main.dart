@@ -7,6 +7,7 @@ import 'package:agriculture_app/features/mainpage/home_page/home_page2.dart';
 import 'package:flutter/material.dart';
 
 import 'features/auth/sign_up_page.dart';
+import 'features/mainpage/home_page/home_page3.dart';
 import 'features/mainpage/welcome_page/welcome_page.dart';
 
 void main() {
@@ -19,6 +20,9 @@ class AgricultureApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: WelcomePage.route,
       routes: {
@@ -27,6 +31,7 @@ class AgricultureApp extends StatelessWidget {
         SignUpPage.route: (context) => const SignUpPage(),
         HomePage.route:(context) => const HomePage(),
         HomePage2.route:(context) => const HomePage2(),
+        HomePage3.route:(context) =>  const HomePage3(),
         DrawerLocalDataPage.route:(context)=>  const DrawerLocalDataPage(),
         DrawerSendtoServerPage.route:(context)=>  const DrawerSendtoServerPage(),
         DrawerSettingPage.route:(context)=>  const DrawerSettingPage(),
