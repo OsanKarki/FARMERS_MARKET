@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/primary_app_bar.dart';
 import '../../../core/widgets/primary_text_field.dart';
-import '../drawer/drawer_Page.dart';
+import '../../../drawer_screen.dart';
 
 class HomePage extends StatefulWidget {
   static const route = 'HomePage';
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        drawer: const NavBar(),
+        drawer:  const MyDrawerNew(selectedIndex: 0,),
         appBar: const PrimaryAppBar(),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

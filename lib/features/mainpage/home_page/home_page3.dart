@@ -1,7 +1,7 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:agriculture_app/core/widgets/primary_text_field.dart';
-import 'package:agriculture_app/features/mainpage/drawer/drawer_Page.dart';
+import 'package:agriculture_app/drawer_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/button.dart';
@@ -30,7 +30,7 @@ class _HomePage3State extends State<HomePage3> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        drawer: const NavBar(),
+        drawer: const MyDrawerNew(selectedIndex: 0,),
         appBar: const PrimaryAppBar(),
         body: SingleChildScrollView(
           child: Column(

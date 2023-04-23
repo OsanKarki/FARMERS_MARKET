@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 
-class DrawerListTile extends StatelessWidget {
+class DrawerListTile extends StatefulWidget {
   final String? text;
   final String imageAsset;
   final VoidCallback? onTap;
   final bool isActive;
 
+
   const DrawerListTile({
     Key? key,
     this.text,
     required this.imageAsset,
-    required this.onTap,
-    this.isActive = false,
+    required this.onTap, required this.isActive,
   }) : super(key: key);
 
   @override
+  State<DrawerListTile> createState() => _DrawerListTileState();
+}
+
+class _DrawerListTileState extends State<DrawerListTile> {
+  @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
-        if (isActive)
+        if (widget.isActive)
           Positioned(
             top: 0,
             bottom: 0,
@@ -26,23 +32,23 @@ class DrawerListTile extends StatelessWidget {
             right: 0,
 
             child: Container(
-              color: Color(0xff35BC88),
+              color: const Color(0xff35BC88),
             ),
           ),
         ListTile(
           leading: Image.asset(
-            imageAsset,
-            color: isActive ? Colors.white : Color(0xff35BC88),
+            widget.imageAsset,
+            color: widget.isActive ? Colors.white : const Color(0xff35BC88),
           ),
           title: Text(
-            text!,
+            widget.text!,
             style: TextStyle(
-              color: isActive ? Colors.white : Color(0xff35BC88),
+              color: widget.isActive ? Colors.white : const Color(0xff35BC88),
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
           ),
-          onTap: onTap,
+          onTap: widget.onTap,
         ),
       ],
     );

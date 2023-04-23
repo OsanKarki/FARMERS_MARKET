@@ -1,8 +1,8 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
-
-import 'package:agriculture_app/features/mainpage/drawer/drawer_Page.dart';
+import 'package:agriculture_app/drawer_screen.dart';
+import 'package:agriculture_app/dropdown.dart';
 import 'package:agriculture_app/features/mainpage/home_page/home_page3.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class _HomePage2State extends State<HomePage2> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-          drawer: const NavBar(),
+          drawer: MyDrawerNew(selectedIndex: 0,),
           appBar: const PrimaryAppBar(),
           body: SingleChildScrollView(
             child: Column(
@@ -199,83 +199,84 @@ class _HomePage2State extends State<HomePage2> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Number Of Children',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.w700),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              width: 182,
-                              child: Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 1),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.black, width: 1.6),
-                                  borderRadius: BorderRadius.circular(11),
-                                  boxShadow: const [
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      offset: Offset(0, 3)
-                                  ),
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      color: Colors.white,
-                                      offset: Offset(-3, 0)
-                                  ),
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      color: Colors.white,
-                                      offset: Offset(3, 0)
-                                  ),
-                                  ]
-                                ),
-                                child: DropdownButton(
-                                  borderRadius: BorderRadius.circular(10),
-                                  dropdownColor: const Color(0xff35BC88),
-                                  underline: const SizedBox(),
-                                  isExpanded: true,
-                                  hint: const Text(''),
-                                  icon: const Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.black,
-                                  ),
-                                  menuMaxHeight: 300,
-                                  iconSize: 36,
-                                  value: nochildrenvalue,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 19,
-                                  ),
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      nochildrenvalue = newValue;
-                                    });
-                                  },
-                                  items: noOfChildren.map((nochildrenvalue) {
-                                    return DropdownMenuItem(
-                                      value: nochildrenvalue,
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Text(nochildrenvalue),
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(vertical: 8),
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: [
+                      //       const Text(
+                      //         'Number Of Children',
+                      //         style: TextStyle(
+                      //             fontSize: 17, fontWeight: FontWeight.w700),
+                      //       ),
+                      //       const SizedBox(
+                      //         height: 5,
+                      //       ),
+                      //       SizedBox(
+                      //         width: 182,
+                      //         child: Container(
+                      //           padding:
+                      //               const EdgeInsets.symmetric(vertical: 1),
+                      //           decoration: BoxDecoration(
+                      //             border: Border.all(
+                      //                 color: Colors.black, width: 1.6),
+                      //             borderRadius: BorderRadius.circular(11),
+                      //             boxShadow: const [
+                      //             BoxShadow(
+                      //                 blurRadius: 3,
+                      //                 offset: Offset(0, 3)
+                      //             ),
+                      //             BoxShadow(
+                      //                 blurRadius: 3,
+                      //                 color: Colors.white,
+                      //                 offset: Offset(-3, 0)
+                      //             ),
+                      //             BoxShadow(
+                      //                 blurRadius: 3,
+                      //                 color: Colors.white,
+                      //                 offset: Offset(3, 0)
+                      //             ),
+                      //             ]
+                      //           ),
+                      //           child: DropdownButton(
+                      //             borderRadius: BorderRadius.circular(10),
+                      //             dropdownColor: const Color(0xff35BC88),
+                      //             underline: const SizedBox(),
+                      //             isExpanded: true,
+                      //             hint: const Text(''),
+                      //             icon: const Icon(
+                      //               Icons.arrow_drop_down,
+                      //               color: Colors.black,
+                      //             ),
+                      //             menuMaxHeight: 300,
+                      //             iconSize: 36,
+                      //             value: nochildrenvalue,
+                      //             style: const TextStyle(
+                      //               color: Colors.black,
+                      //               fontSize: 19,
+                      //             ),
+                      //             onChanged: (newValue) {
+                      //               setState(() {
+                      //                 nochildrenvalue = newValue;
+                      //               });
+                      //             },
+                      //             items: noOfChildren.map((nochildrenvalue) {
+                      //               return DropdownMenuItem(
+                      //                 value: nochildrenvalue,
+                      //                 child: Padding(
+                      //                   padding: const EdgeInsets.symmetric(
+                      //                       horizontal: 8),
+                      //                   child: Text(nochildrenvalue),
+                      //                 ),
+                      //               );
+                      //             }).toList(),
+                      //           ),
+                      //         ),
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
+                      ChildrenTextField(),
                       const SizedBox(
                         height: 20,
                       ),
