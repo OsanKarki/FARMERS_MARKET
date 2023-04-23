@@ -1,7 +1,7 @@
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../drawer_screen.dart';
+import '../drawer_screen.dart';
 
 class DrawerSettingPage extends StatelessWidget {
   static const route = 'DrawerSettingPage';

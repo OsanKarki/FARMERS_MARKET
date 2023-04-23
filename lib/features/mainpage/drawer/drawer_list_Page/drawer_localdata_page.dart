@@ -2,7 +2,7 @@ import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:agriculture_app/dropdown.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../drawer_screen.dart';
+import '../drawer_screen.dart';
 
 
 class DrawerLocalDataPage extends StatelessWidget {
@@ -16,12 +16,7 @@ class DrawerLocalDataPage extends StatelessWidget {
       drawer: MyDrawerNew(selectedIndex: 1,),
       appBar: PrimaryAppBar(),
 
-      body: Column(
-        children: [
-          ChildrenTextField(),
-          Text('Local data Page',style: TextStyle(fontSize: 30),),
-        ],
-      ),
+      body: Center(child: Text('Local data Page',style: TextStyle(fontSize: 30),))
 
     );
   }

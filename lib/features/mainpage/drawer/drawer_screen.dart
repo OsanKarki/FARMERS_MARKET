@@ -55,12 +55,15 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
                   color: widget.selectedIndex == index ? const Color(0xff35BC88) : null,
                   child: ListTile(
                     leading: Image.asset(
+
                       drawerItems[index]['icon'],
                       color: widget.selectedIndex == index ? Colors.white : const Color(0xff35BC88),
                     ),
                     title: Text(
                       drawerItems[index]['title'],
                       style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
                         color: widget.selectedIndex == index ? Colors.white : const Color(0xff35BC88),
                       ),
                     ),
@@ -68,29 +71,20 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
                        switch(index){
                          case 0:
                            ///pass different screen
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) =>const HomePage()),
-                           );
+                           Navigator.pushNamed(context, HomePage.route);
                            break;
                          case 1:
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) =>const DrawerLocalDataPage()),
-                           );
+                           Navigator.pushNamed(context, DrawerLocalDataPage.route);
                            break;
                          case 2:
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) =>const DrawerSendtoServerPage()),
-                           );
-                           break;
+
+                               Navigator.pushNamed(context, DrawerSendtoServerPage.route);
+
+                               break;
 
                          case 3:
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) =>const DrawerSettingPage()),
-                           );
+
+                               Navigator.pushNamed(context, DrawerSettingPage.route);
                            break;
                        }
                     },

@@ -1,7 +1,7 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
-import 'package:agriculture_app/drawer_screen.dart';
+import 'package:agriculture_app/features/mainpage/drawer/drawer_screen.dart';
 import 'package:agriculture_app/dropdown.dart';
 import 'package:agriculture_app/features/mainpage/home_page/home_page3.dart';
 import 'package:flutter/material.dart';
@@ -20,20 +20,83 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
-  String? nochildrenvalue;
-  String? gendervalue;
 
-  List<String> noOfChildren = ["1", "2", "3", "4", "5", "6", "7",];
+  String? genderValue;
+  String? daysValue;
+  String? monthsValue;
+  String? yearsValue;
+
+
   List<String> gender = ["Male", "Female", "Others", ];
+   List<String> months = [
+    'Month',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+   List<String> days = [
+    'Day',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
+  ];
+   List<String> years = [];
+
+  @override
+  void initState() {
+    super.initState();
+    int currentYear = DateTime.now().year;
+    years = List.generate(24, (index) => (currentYear - index).toString());
+    years.insert(0, 'Year');
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-          drawer: MyDrawerNew(selectedIndex: 0,),
+          drawer: const MyDrawerNew(selectedIndex: 0,),
           appBar: const PrimaryAppBar(),
           body: SingleChildScrollView(
             child: Column(
@@ -149,14 +212,14 @@ class _HomePage2State extends State<HomePage2> {
                                         color: Colors.black,
                                       ),
                                       iconSize: 36,
-                                      value: gendervalue,
+                                      value: genderValue,
                                       style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 19,
                                       ),
                                       onChanged: (newValue) {
                                         setState(() {
-                                          gendervalue = newValue;
+                                          genderValue = newValue;
                                         });
                                       },
                                       items: gender.map((gendervalue) {
@@ -177,8 +240,207 @@ class _HomePage2State extends State<HomePage2> {
                           ),
                         ],
                       ),
-                      const PrimaryTextField(
-                        label: 'Dob',
+
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+
+                            const Text(
+                              'Dob',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w700),
+                            ),
+                            const SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+
+                                SizedBox(
+                                  width: 90,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    decoration: BoxDecoration(
+                                        border:
+                                        Border.all(color: Colors.black, width: 1.6),
+                                        borderRadius: BorderRadius.circular(11),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              offset: Offset(0, 2)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(-3, 0)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(3, 0)
+                                          ),
+                                        ]
+                                    ),
+                                    child: DropdownButton(
+                                      borderRadius: BorderRadius.circular(10),
+                                      dropdownColor: const Color(0xff35BC88),
+                                      underline: const SizedBox(),
+                                      isExpanded: true,
+                                      menuMaxHeight: 300,
+                                      hint: const Text(' Day'),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.black,
+                                      ),
+                                      iconSize: 36,
+                                      value: daysValue,
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                      ),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          daysValue = newValue;
+                                        });
+                                      },
+                                      items: days.map((daysValue) {
+                                        return DropdownMenuItem(
+                                          value: daysValue,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 7),
+                                            child: Text(daysValue),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 140,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    decoration: BoxDecoration(
+                                        border:
+                                        Border.all(color: Colors.black, width: 1.6),
+                                        borderRadius: BorderRadius.circular(11),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              offset: Offset(0, 2)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(-3, 0)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(3, 0)
+                                          ),
+                                        ]
+                                    ),
+                                    child: DropdownButton(
+                                      borderRadius: BorderRadius.circular(10),
+                                      dropdownColor: const Color(0xff35BC88),
+                                      underline: const SizedBox(),
+                                      isExpanded: true,
+                                      menuMaxHeight: 300,
+                                      hint: const Text(' Month'),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.black,
+                                      ),
+                                      iconSize: 36,
+                                      value: monthsValue,
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                      ),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          monthsValue = newValue;
+                                        });
+                                      },
+                                      items: months.map((monthsValue) {
+                                        return DropdownMenuItem(
+                                          value: monthsValue,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 7),
+                                            child: Text(monthsValue),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 120,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    decoration: BoxDecoration(
+                                        border:
+                                        Border.all(color: Colors.black, width: 1.6),
+                                        borderRadius: BorderRadius.circular(11),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              offset: Offset(0, 2)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(-3, 0)
+                                          ),
+                                          BoxShadow(
+                                              blurRadius: 3,
+                                              color: Colors.white,
+                                              offset: Offset(3, 0)
+                                          ),
+                                        ]
+                                    ),
+                                    child: DropdownButton(
+                                      borderRadius: BorderRadius.circular(10),
+                                      dropdownColor: const Color(0xff35BC88),
+                                      underline: const SizedBox(),
+                                      isExpanded: true,
+                                      menuMaxHeight: 300,
+                                      hint: const Text(' Years'),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.black,
+                                      ),
+                                      iconSize: 36,
+                                      value: yearsValue,
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                      ),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          yearsValue = newValue;
+                                        });
+                                      },
+                                      items: years.map((yearsValue) {
+                                        return DropdownMenuItem(
+                                          value: yearsValue,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 7),
+                                            child: Text(yearsValue),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       const PrimaryTextField(
                         label: 'Educational Qualification',
@@ -276,33 +538,36 @@ class _HomePage2State extends State<HomePage2> {
                       //     ],
                       //   ),
                       // ),
-                      ChildrenTextField(),
+                      ChildrenDropDownTextField(),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: PrimaryButton(
-                              text: 'Previous',
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: PrimaryButton(
+                                text: 'Previous',
+                                onPressed: () {
+                                  Navigator.pushNamed(context, HomePage.route);
+                                },
+                                borderRadius: 20,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(
+                                child: PrimaryButton(
+                              text: 'Continue',
                               onPressed: () {
-                                Navigator.pushNamed(context, HomePage.route);
+                                Navigator.pushNamed(context, HomePage3.route);
                               },
                               borderRadius: 20,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Expanded(
-                              child: PrimaryButton(
-                            text: 'Continue',
-                            onPressed: () {
-                              Navigator.pushNamed(context, HomePage3.route);
-                            },
-                            borderRadius: 20,
-                          )),
-                        ],
+                            )),
+                          ],
+                        ),
                       )
                     ],
                   ),

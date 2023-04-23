@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/primary_app_bar.dart';
 import '../../../core/widgets/primary_text_field.dart';
-import '../../../drawer_screen.dart';
+import '../drawer/drawer_screen.dart';
 
 class HomePage extends StatefulWidget {
   static const route = 'HomePage';
