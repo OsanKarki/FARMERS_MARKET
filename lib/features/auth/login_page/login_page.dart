@@ -1,9 +1,9 @@
 import 'package:agriculture_app/features/mainpage/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/config/size_config.dart';
-import '../../core/utils/button.dart';
-import '../../core/widgets/primary_text_field.dart';
+import '../../../core/config/size_config.dart';
+import '../../../core/utils/button.dart';
+import '../../../core/widgets/primary_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   static const route = 'LoginPage';
@@ -17,8 +17,34 @@ class LoginPage extends StatelessWidget {
           FocusScope.of(context).unfocus();
         },
       child: Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
+        body: Stack(
+      children: [
+      Positioned(
+      top: -50,
+        left: -50,
+        child: Container(
+          width: 350,
+          height: 350,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color(0xff0B7E7F).withOpacity(0.3),
+          ),
+        ),
+      ),
+      Positioned(
+        top: -80,
+        left: 150,
+        child: Container(
+          width: 290,
+          height: 290,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color(0xff35BC88).withOpacity(0.5),
+          ),
+        ),
+      ),
+      SingleChildScrollView(
+
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(
                 padding: const EdgeInsets.fromLTRB(29, 120, 0, 0),
@@ -71,18 +97,23 @@ class LoginPage extends StatelessWidget {
               height: 30,
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: SizeConstants.horizontalSpacing),
+              padding:  const EdgeInsets.symmetric(horizontal: SizeConstants.horizontalSpacing),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  PrimaryTextField(
-                    hintText: 'Enter email id',
+                  const PrimaryTextField(
+                    hintText: 'Enter Phone Number',
+                    prefixIcon: Icons.phone,
+                    keyboardType: TextInputType.number,
+
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  PrimaryTextField(
+                  const PrimaryTextField(
+                    prefixIcon: Icons.lock,
                     hintText: 'Enter password',
+                    isPassword: true,
                   ),
                   TextButton(
                       onPressed: () {},
@@ -91,7 +122,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(color: Color(0xff564C4A),fontWeight: FontWeight.w700),
                       )),
                   const SizedBox(
-                    height: 35,
+                    height: 15,
                   ),
                   Center(
                     child: PrimaryButton(
@@ -107,7 +138,7 @@ class LoginPage extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 100,
+              height: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -128,10 +159,35 @@ class LoginPage extends StatelessWidget {
                           fontWeight: FontWeight.w700)),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Are you a Government?',
+                  style: TextStyle(
+                      color: Color(0xffB6B6B6),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Login',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                )
+              ],
             )
           ]),
         ),
-      ),
+      ]
+    )
+      )
     );
   }
 }

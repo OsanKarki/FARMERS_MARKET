@@ -1,27 +1,50 @@
 import 'package:flutter/material.dart';
 
-class PrimaryTextField extends StatelessWidget {
+class PrimaryTextField extends StatefulWidget {
   final String? label;
   final String? hintText;
   final double height;
+  final bool isPassword;
+  final IconData? suffixIcon;
+  final IconData? prefixIcon;
+  final TextInputType? keyboardType;
 
   const PrimaryTextField({
     super.key,
     this.label,
     this.hintText,
     this.height = 15,
+    this.isPassword = false,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.keyboardType,
+
   });
 
   @override
+  State<PrimaryTextField> createState() => _PrimaryTextFieldState();
+}
+
+class _PrimaryTextFieldState extends State<PrimaryTextField> {
+  late  TextInputType keyboardType;
+  bool isHidden = true;
+
+
+  @override
+  void initState() {
+    keyboardType = widget.keyboardType ?? TextInputType.text;
+    // TODO: implement initState
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        if (label != null)
+        if (widget.label != null)
           Column(
             children: [
               Text(
-                label!,
+                widget.label!,
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
               ),
@@ -45,13 +68,31 @@ class PrimaryTextField extends StatelessWidget {
                       blurRadius: 3, color: Colors.white, offset: Offset(3, 0)),
                 ]),
             child: TextFormField(
-              style: const TextStyle(
-                fontSize: 17,
-              ),
+              keyboardType: keyboardType,
+              obscureText: widget.isPassword ? isHidden : false,
               decoration: InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: height, horizontal: 10),
-                hintText: hintText,
+                prefixIcon: widget.prefixIcon != null
+                    ? Icon(
+                        widget.prefixIcon,
+                        color: Colors.black38,
+                      )
+                    : null,
+                suffixIcon: widget.isPassword
+                    ? InkWell(
+                        onTap: () {
+                          setState(() {
+                            isHidden = !isHidden;
+                          });
+                        },
+                        child: Icon(
+                          isHidden ? Icons.visibility : Icons.visibility_off,
+                          color: Colors.black38,
+                        ))
+                    : null,
+
+                contentPadding: EdgeInsets.symmetric(
+                    vertical: widget.height, horizontal: 10),
+                hintText: widget.hintText,
                 hintStyle: const TextStyle(color: Color(0xffB6B6B6)),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(11),

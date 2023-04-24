@@ -1,3 +1,4 @@
+import 'package:agriculture_app/features/auth/login_page/login_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_sendtoserver_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_setting_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/drawer_localdata_page.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class MyDrawerNew extends StatefulWidget {
   final int selectedIndex;
+
 
   const MyDrawerNew({Key? key, required this.selectedIndex}) : super(key: key);
 
@@ -20,6 +22,7 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
     {'title': 'Local Data', 'icon':'assets/duckicon.png'},
     {'title': 'Send to Server', 'icon':'assets/cloud.png'},
     {'title': 'Settings', 'icon': 'assets/setting.png'},
+    {'title': 'Logout', 'icon': 'assets/logout.png'},
   ];
 
   @override
@@ -52,6 +55,8 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
               itemCount: drawerItems.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
+                 
+
                   color: widget.selectedIndex == index ? const Color(0xff35BC88) : null,
                   child: ListTile(
                     leading: Image.asset(
@@ -86,6 +91,12 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
 
                                Navigator.pushNamed(context, DrawerSettingPage.route);
                            break;
+
+                         case 4:
+
+                           Navigator.pushNamed(context, LoginPage.route);
+                           break;
+
                        }
                     },
                   ),
