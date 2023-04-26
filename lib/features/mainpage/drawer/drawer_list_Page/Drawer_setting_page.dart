@@ -9,11 +9,11 @@ class DrawerSettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      drawer:  MyDrawerNew(selectedIndex: 3,),
+    return Scaffold(
+      drawer:  const MyDrawerNew(selectedIndex: 3,),
       appBar: PrimaryAppBar(),
 
-      body: Center(child: Text('Drawer Setting Page',style: TextStyle(fontSize: 30),)),
+      body: const Center(child: Text('Drawer Setting Page',style: TextStyle(fontSize: 30),)),
     );
   }
 }

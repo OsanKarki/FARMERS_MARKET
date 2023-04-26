@@ -1,23 +1,23 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/color_switch_text.dart';
-import 'package:agriculture_app/features/mainpage/home_page/home_page2.dart';
+import 'package:agriculture_app/features/auth/signup_page/personal_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/primary_app_bar.dart';
 import '../../../core/widgets/primary_text_field.dart';
-import '../drawer/drawer_screen.dart';
+import '../../mainpage/drawer/drawer_screen.dart';
 
-class HomePage extends StatefulWidget {
-  static const route = 'HomePage';
+class AddressDetailsPage extends StatefulWidget {
+  static const route = 'AddressDetailsPage';
 
-  const HomePage({super.key});
+  const AddressDetailsPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AddressDetailsPage> createState() => _AddressDetailsPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AddressDetailsPageState extends State<AddressDetailsPage> {
   String? listValue;
   String? districtValue;
   String? municipalitiesvalue;
@@ -77,8 +77,8 @@ class _HomePageState extends State<HomePage> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        drawer:  const MyDrawerNew(selectedIndex: 0,),
-        appBar: const PrimaryAppBar(),
+
+        appBar:  PrimaryAppBar(),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -437,7 +437,7 @@ class _HomePageState extends State<HomePage> {
                     PrimaryButton(
                       text: 'Continue',
                       onPressed: () {
-                        Navigator.pushNamed(context, HomePage2.route);
+                        Navigator.pushNamed(context, PersonalDetailsPage.route);
                       },
                       borderRadius: 20,
                     ),

@@ -26,16 +26,12 @@ class PrimaryTextField extends StatefulWidget {
 }
 
 class _PrimaryTextFieldState extends State<PrimaryTextField> {
-  late  TextInputType keyboardType;
+
   bool isHidden = true;
 
 
   @override
-  void initState() {
-    keyboardType = widget.keyboardType ?? TextInputType.text;
-    // TODO: implement initState
-    super.initState();
-  }
+
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -68,7 +64,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                       blurRadius: 3, color: Colors.white, offset: Offset(3, 0)),
                 ]),
             child: TextFormField(
-              keyboardType: keyboardType,
+              keyboardType: widget.keyboardType ?? TextInputType.text,
               obscureText: widget.isPassword ? isHidden : false,
               decoration: InputDecoration(
                 prefixIcon: widget.prefixIcon != null

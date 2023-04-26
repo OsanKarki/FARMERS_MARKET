@@ -9,8 +9,8 @@ class DrawerSendtoServerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      drawer: MyDrawerNew(selectedIndex: 2,),
+    return  Scaffold(
+      drawer: const MyDrawerNew(selectedIndex: 2,),
       appBar: PrimaryAppBar(),
       body: Center(
           child: Text(

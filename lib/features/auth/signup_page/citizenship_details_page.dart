@@ -7,18 +7,18 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/button.dart';
 import '../../../core/utils/color_switch_text.dart';
 
-import 'home_page2.dart';
+import 'personal_details_page.dart';
 
-class HomePage3 extends StatefulWidget {
-  static const route = 'HomePage3';
+class CitizenshipDetailsPage extends StatefulWidget {
+  static const route = 'CitizenshipDetailsPage';
 
-  const HomePage3({Key? key}) : super(key: key);
+  const CitizenshipDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage3> createState() => _HomePage3State();
+  State<CitizenshipDetailsPage> createState() => _CitizenshipDetailsPageState();
 }
 
-class _HomePage3State extends State<HomePage3> {
+class _CitizenshipDetailsPageState extends State<CitizenshipDetailsPage> {
   String? districtValue;
   String? fieldOfAgricultureWorkValue;
   List<String> district = ["Kathmandu", "Bhaktapur", "Lalitpur", "Janakpur", "Bara", "Baglung", "Chitwan", "Jhapa",];
@@ -31,7 +31,9 @@ class _HomePage3State extends State<HomePage3> {
       },
       child: Scaffold(
         drawer: const MyDrawerNew(selectedIndex: 0,),
-        appBar: const PrimaryAppBar(),
+        appBar:  PrimaryAppBar(
+          automaticallyImplyLeading: false,
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -248,7 +250,7 @@ class _HomePage3State extends State<HomePage3> {
                           child: PrimaryButton(
                             text: 'Previous',
                             onPressed: () {
-                              Navigator.pushNamed(context, HomePage2.route);
+                              Navigator.pop(context);
                             },
                             borderRadius: 20,
                           ),
@@ -258,7 +260,7 @@ class _HomePage3State extends State<HomePage3> {
                         ),
                         Expanded(
                             child: PrimaryButton(
-                          text: 'Continue',
+                          text: 'Save',
                           onPressed: () {},
                           borderRadius: 20,
                         )),

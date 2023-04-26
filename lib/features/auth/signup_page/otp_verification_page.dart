@@ -32,7 +32,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               height: 350,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xff0B7E7F).withOpacity(0.3),
+                color: const Color(0xff0B7E7F).withOpacity(0.3),
               ),
             ),
           ),
@@ -44,7 +44,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               height: 290,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xff35BC88).withOpacity(0.5),
+                color: const Color(0xff35BC88).withOpacity(0.5),
               ),
             ),
           ),

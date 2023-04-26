@@ -1,4 +1,6 @@
-import 'package:agriculture_app/features/mainpage/home_page/home_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/sign_up_page.dart';
+import 'package:agriculture_app/features/mainpage/home_page/homePage_1.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/config/size_config.dart';
@@ -129,7 +131,7 @@ class LoginPage extends StatelessWidget {
                       text: 'Login',
                       borderRadius: 20,
                       onPressed: () {
-                        Navigator.pushNamed(context, HomePage.route);
+                Navigator.pushNamed(context, HomePage.route);
                       },
                     ),
                   ),
@@ -151,12 +153,15 @@ class LoginPage extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SignUpPage.route);
+                  },
                   child: const Text('Create Account',
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
-                          fontWeight: FontWeight.w700)),
+                          fontWeight: FontWeight.w700),
+                  ),
                 )
               ],
             ),

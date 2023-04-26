@@ -4,18 +4,25 @@ import 'package:flutter/material.dart';
 
 class PrimaryAppBar extends StatelessWidget with PreferredSizeWidget {
   final String? title;
+  final bool automaticallyImplyLeading;
+  final List<Widget>? actions;
+  final Color backgroundColor ;
 
-  const PrimaryAppBar({
+  PrimaryAppBar({
     Key? key,
     this.title,
+    this.automaticallyImplyLeading = true, this.actions,   this.backgroundColor = Colors.white ,
+
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        actions: actions,
         iconTheme: const IconThemeData(color: Colors.black, size: 33),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: backgroundColor,
         title: Padding(
           padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: RichText(

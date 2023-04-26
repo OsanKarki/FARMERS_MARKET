@@ -12,11 +12,13 @@ class DrawerLocalDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-      drawer: MyDrawerNew(selectedIndex: 1,),
-      appBar: PrimaryAppBar(),
+    return   Scaffold(
+      drawer: const MyDrawerNew(selectedIndex: 1,),
+      appBar: PrimaryAppBar(
 
-      body: Center(child: Text('Local data Page',style: TextStyle(fontSize: 30),))
+      ),
+
+      body: const Center(child: Text('Local data Page',style: TextStyle(fontSize: 30),))
 
     );
   }

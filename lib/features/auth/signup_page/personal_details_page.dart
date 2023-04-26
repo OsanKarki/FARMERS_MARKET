@@ -3,23 +3,23 @@ import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_screen.dart';
 import 'package:agriculture_app/core/widgets/no_of_children_dropdown.dart';
-import 'package:agriculture_app/features/mainpage/home_page/home_page3.dart';
+import 'package:agriculture_app/features/auth/signup_page/citizenship_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/color_switch_text.dart';
 import '../../../core/widgets/primary_text_field.dart';
-import 'home_page.dart';
+import 'address_detail_page.dart';
 
-class HomePage2 extends StatefulWidget {
-  static const route = 'HomePage2';
+class PersonalDetailsPage extends StatefulWidget {
+  static const route = 'PersonalDetailsPage';
 
-  const HomePage2({Key? key}) : super(key: key);
+  const PersonalDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage2> createState() => _HomePage2State();
+  State<PersonalDetailsPage> createState() => _PersonalDetailsPageState();
 }
 
-class _HomePage2State extends State<HomePage2> {
+class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
 
   String? genderValue;
   String? daysValue;
@@ -96,8 +96,10 @@ class _HomePage2State extends State<HomePage2> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-          drawer: const MyDrawerNew(selectedIndex: 0,),
-          appBar: const PrimaryAppBar(),
+
+          appBar:  PrimaryAppBar(
+            automaticallyImplyLeading: false,
+          ),
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -474,7 +476,7 @@ class _HomePage2State extends State<HomePage2> {
                               child: PrimaryButton(
                                 text: 'Previous',
                                 onPressed: () {
-                                  Navigator.pushNamed(context, HomePage.route);
+                                  Navigator.pop(context);
                                 },
                                 borderRadius: 20,
                               ),
@@ -486,7 +488,7 @@ class _HomePage2State extends State<HomePage2> {
                                 child: PrimaryButton(
                               text: 'Continue',
                               onPressed: () {
-                                Navigator.pushNamed(context, HomePage3.route);
+                                Navigator.pushNamed(context, CitizenshipDetailsPage.route);
                               },
                               borderRadius: 20,
                             )),

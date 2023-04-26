@@ -2,7 +2,7 @@ import 'package:agriculture_app/features/auth/login_page/login_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_sendtoserver_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_setting_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/drawer_localdata_page.dart';
-import 'package:agriculture_app/features/mainpage/home_page/home_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawerNew extends StatefulWidget {
@@ -76,7 +76,7 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
                        switch(index){
                          case 0:
                            ///pass different screen
-                           Navigator.pushNamed(context, HomePage.route);
+                           Navigator.pushNamed(context, AddressDetailsPage.route);
                            break;
                          case 1:
                            Navigator.pushNamed(context, DrawerLocalDataPage.route);

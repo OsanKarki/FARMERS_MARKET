@@ -1,3 +1,5 @@
+import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/personal_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/config/size_config.dart';
@@ -124,6 +126,7 @@ class SetPasswordPage extends StatelessWidget {
                           borderRadius: 20,
 
                           onPressed: () {
+                            Navigator.pushNamed(context,AddressDetailsPage.route );
 
                           },
                         ),
