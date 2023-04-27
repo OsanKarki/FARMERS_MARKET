@@ -27,7 +27,7 @@ class AgricultureApp extends StatelessWidget {
       navigationBarTheme: NavigationBarThemeData(
 
         indicatorColor: Colors.white,
-        labelTextStyle:MaterialStateProperty.all(const TextStyle(fontSize: 13,color: Colors.white))
+        labelTextStyle:MaterialStateProperty.all(const TextStyle(fontSize: 15,color: Colors.white))
       ),
     ),
       debugShowCheckedModeBanner: false,
