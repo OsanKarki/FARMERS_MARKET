@@ -75,7 +75,7 @@ class _CitizenshipDetailsPageState extends State<CitizenshipDetailsPage> {
                 child: Column(
                   children: [
                     const PrimaryTextField(
-                      label: 'Citizenship Number',
+                      label: 'Citizenship Number (2121-1212-1211)',
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),

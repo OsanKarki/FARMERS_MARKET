@@ -20,15 +20,17 @@ class PersonalDetailsPage extends StatefulWidget {
 }
 
 class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
-
   String? genderValue;
   String? daysValue;
   String? monthsValue;
   String? yearsValue;
 
-
-  List<String> gender = ["Male", "Female", "Others", ];
-   List<String> months = [
+  List<String> gender = [
+    "Male",
+    "Female",
+    "Others",
+  ];
+  List<String> months = [
     'Month',
     'January',
     'February',
@@ -44,7 +46,7 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
     'December',
   ];
 
-   List<String> days = [
+  List<String> days = [
     'Day',
     '1',
     '2',
@@ -78,7 +80,7 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
     '30',
     '31',
   ];
-   List<String> years = [];
+  List<String> years = [];
 
   @override
   void initState() {
@@ -90,14 +92,12 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-
-          appBar:  PrimaryAppBar(
+          appBar: PrimaryAppBar(
             automaticallyImplyLeading: false,
           ),
           body: SingleChildScrollView(
@@ -141,149 +141,184 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: const [
-                          Expanded(
-                            child: PrimaryTextField(
-                              label: 'First Name',
+                      SizedBox(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 10,
+
                             ),
-                          ),
-                          SizedBox(width: 15),
-                          Expanded(
-                            child: PrimaryTextField(
-                              label: 'Middle Name',
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children:  [
-                          const Expanded(
-                            child: PrimaryTextField(
-                              label: 'Last Name',
-                            ),
-                          ),
-                          const SizedBox(width: 15),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Gender',
-                                  style: TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.w700),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                SizedBox(
-                                  width: 182,
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 1),
-                                    decoration: BoxDecoration(
-                                      border:
-                                      Border.all(color: Colors.black, width: 1.6),
-                                      borderRadius: BorderRadius.circular(11),
-                                      boxShadow: const [
-                                      BoxShadow(
-                                          blurRadius: 3,
-                                          offset: Offset(0, 2)
-                                      ),
-                                      BoxShadow(
-                                          blurRadius: 3,
-                                          color: Colors.white,
-                                          offset: Offset(-3, 0)
-                                      ),
-                                      BoxShadow(
-                                          blurRadius: 3,
-                                          color: Colors.white,
-                                          offset: Offset(3, 0)
-                                      ),
-                                      ]
-                                    ),
-                                    child: DropdownButton(
-                                      borderRadius: BorderRadius.circular(10),
-                                      dropdownColor: const Color(0xff35BC88),
-                                      underline: const SizedBox(),
-                                      isExpanded: true,
-                                      menuMaxHeight: 300,
-                                      hint: const Text(''),
-                                      icon: const Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Colors.black,
-                                      ),
-                                      iconSize: 36,
-                                      value: genderValue,
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 19,
-                                      ),
-                                      onChanged: (newValue) {
-                                        setState(() {
-                                          genderValue = newValue;
-                                        });
-                                      },
-                                      items: gender.map((gendervalue) {
-                                        return DropdownMenuItem(
-                                          value: gendervalue,
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 7),
-                                            child: Text(gendervalue),
-                                          ),
-                                        );
-                                      }).toList(),
-                                    ),
+                            const Text('नेपालीमा :',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+                            Row(
+                              children: const [
+
+                                Expanded(
+                                  child: PrimaryTextField(
+                                    label: 'First Name(पहिलो नाम)',
                                   ),
-                                )
+                                ),
+                                SizedBox(width: 15),
+                                Expanded(
+                                  child: PrimaryTextField(
+                                    label: 'Middle Name(बीचको नाम)',
+                                  ),
+                                ),
                               ],
                             ),
+                            const SizedBox(
+                              width: 180,
+                              child: PrimaryTextField(
+                                label: 'Last Name(थर)',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      
+                      SizedBox(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 10,
+
+                            ),
+                            const Text('In English :',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+
+                            Row(
+                              children: const [
+                                Expanded(
+                                  child: PrimaryTextField(
+                                    label: 'First Name',
+                                  ),
+                                ),
+                                SizedBox(width: 15),
+                                Expanded(
+                                  child: PrimaryTextField(
+                                    label: 'Middle Name',
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 180,
+                              child: PrimaryTextField(
+                                label: 'Last Name',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Gender',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w700),
                           ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          SizedBox(
+                            width: 182,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 1),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.black, width: 1.6),
+                                  borderRadius: BorderRadius.circular(11),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        blurRadius: 3, offset: Offset(0, 2)),
+                                    BoxShadow(
+                                        blurRadius: 3,
+                                        color: Colors.white,
+                                        offset: Offset(-3, 0)),
+                                    BoxShadow(
+                                        blurRadius: 3,
+                                        color: Colors.white,
+                                        offset: Offset(3, 0)),
+                                  ]),
+                              child: DropdownButton(
+                                borderRadius: BorderRadius.circular(10),
+                                dropdownColor: const Color(0xff35BC88),
+                                underline: const SizedBox(),
+                                isExpanded: true,
+                                menuMaxHeight: 300,
+                                hint: const Text(''),
+                                icon: const Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Colors.black,
+                                ),
+                                iconSize: 36,
+                                value: genderValue,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19,
+                                ),
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    genderValue = newValue;
+                                  });
+                                },
+                                items: gender.map((gendervalue) {
+                                  return DropdownMenuItem(
+                                    value: gendervalue,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 7),
+                                      child: Text(gendervalue),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          )
                         ],
                       ),
-
-
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             const Text(
                               'Dob',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w700),
                             ),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-
                                 SizedBox(
                                   width: 90,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 1),
                                     decoration: BoxDecoration(
-                                        border:
-                                        Border.all(color: Colors.black, width: 1.6),
+                                        border: Border.all(
+                                            color: Colors.black, width: 1.6),
                                         borderRadius: BorderRadius.circular(11),
                                         boxShadow: const [
                                           BoxShadow(
                                               blurRadius: 3,
-                                              offset: Offset(0, 2)
-                                          ),
+                                              offset: Offset(0, 2)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(-3, 0)
-                                          ),
+                                              offset: Offset(-3, 0)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(3, 0)
-                                          ),
-                                        ]
-                                    ),
+                                              offset: Offset(3, 0)),
+                                        ]),
                                     child: DropdownButton(
                                       borderRadius: BorderRadius.circular(10),
                                       dropdownColor: const Color(0xff35BC88),
@@ -322,28 +357,25 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
                                 SizedBox(
                                   width: 150,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 1),
                                     decoration: BoxDecoration(
-                                        border:
-                                        Border.all(color: Colors.black, width: 1.6),
+                                        border: Border.all(
+                                            color: Colors.black, width: 1.6),
                                         borderRadius: BorderRadius.circular(11),
                                         boxShadow: const [
                                           BoxShadow(
                                               blurRadius: 3,
-                                              offset: Offset(0, 2)
-                                          ),
+                                              offset: Offset(0, 2)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(-3, 0)
-                                          ),
+                                              offset: Offset(-3, 0)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(3, 0)
-                                          ),
-                                        ]
-                                    ),
+                                              offset: Offset(3, 0)),
+                                        ]),
                                     child: DropdownButton(
                                       borderRadius: BorderRadius.circular(10),
                                       dropdownColor: const Color(0xff35BC88),
@@ -382,28 +414,25 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
                                 SizedBox(
                                   width: 120,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 1),
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 1),
                                     decoration: BoxDecoration(
-                                        border:
-                                        Border.all(color: Colors.black, width: 1.6),
+                                        border: Border.all(
+                                            color: Colors.black, width: 1.6),
                                         borderRadius: BorderRadius.circular(11),
                                         boxShadow: const [
                                           BoxShadow(
                                               blurRadius: 3,
-                                              offset: Offset(0, 2)
-                                          ),
+                                              offset: Offset(0, 2)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(-3, 0)
-                                          ),
+                                              offset: Offset(-3, 0)),
                                           BoxShadow(
                                               blurRadius: 3,
                                               color: Colors.white,
-                                              offset: Offset(3, 0)
-                                          ),
-                                        ]
-                                    ),
+                                              offset: Offset(3, 0)),
+                                        ]),
                                     child: DropdownButton(
                                       borderRadius: BorderRadius.circular(10),
                                       dropdownColor: const Color(0xff35BC88),
@@ -463,7 +492,6 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
                           ),
                         ],
                       ),
-
                       const ChildrenDropDownTextField(),
                       const SizedBox(
                         height: 20,
@@ -488,7 +516,8 @@ class _PersonalDetailsPageState extends State<PersonalDetailsPage> {
                                 child: PrimaryButton(
                               text: 'Continue',
                               onPressed: () {
-                                Navigator.pushNamed(context, CitizenshipDetailsPage.route);
+                                Navigator.pushNamed(
+                                    context, CitizenshipDetailsPage.route);
                               },
                               borderRadius: 20,
                             )),

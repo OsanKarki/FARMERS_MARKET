@@ -1,4 +1,4 @@
-import 'package:agriculture_app/features/auth/login_page/login_page.dart';
+import 'package:agriculture_app/features/auth/login_page/farmer_login_page/farmer_login_page.dart';
 import 'package:agriculture_app/features/auth/signup_page/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -65,7 +65,7 @@ class WelcomePage extends StatelessWidget {
 
                     text: 'Login',
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginPage.route);
+                      Navigator.pushNamed(context, FarmerLoginPage.route);
                     },
                   ),
                 ),

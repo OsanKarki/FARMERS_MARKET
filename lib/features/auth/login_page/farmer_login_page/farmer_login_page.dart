@@ -1,16 +1,17 @@
+import 'package:agriculture_app/features/auth/login_page/government_login_page/Government_login_page.dart';
 import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
 import 'package:agriculture_app/features/auth/signup_page/sign_up_page.dart';
-import 'package:agriculture_app/features/mainpage/home_page/homePage_1.dart';
+import 'package:agriculture_app/features/mainpage/home_page/farmer_home_page/farmer_homepage.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/config/size_config.dart';
-import '../../../core/utils/button.dart';
-import '../../../core/widgets/primary_text_field.dart';
+import '../../../../core/config/size_config.dart';
+import '../../../../core/utils/button.dart';
+import '../../../../core/widgets/primary_text_field.dart';
 
-class LoginPage extends StatelessWidget {
+class FarmerLoginPage extends StatelessWidget {
   static const route = 'LoginPage';
 
-  const LoginPage({Key? key}) : super(key: key);
+  const FarmerLoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +132,7 @@ class LoginPage extends StatelessWidget {
                       text: 'Login',
                       borderRadius: 20,
                       onPressed: () {
-                Navigator.pushNamed(context, HomePage.route);
+                Navigator.pushNamed(context, FarmerHomePage.route);
                       },
                     ),
                   ),
@@ -179,7 +180,7 @@ class LoginPage extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushNamed(context, GovernmentLoginPage.route);},
                   child: const Text('Login',
                       style: TextStyle(
                           color: Colors.black,

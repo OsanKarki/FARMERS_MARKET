@@ -4,6 +4,7 @@ import 'package:pinput/pinput.dart';
 
 import '../../../core/utils/button.dart';
 import '../../../core/widgets/primary_text_field.dart';
+import '../login_page/farmer_login_page/farmer_login_page.dart';
 
 class OtpVerificationPage extends StatefulWidget {
   static const route = 'OtpVerificationPage';
@@ -140,7 +141,9 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           fontWeight: FontWeight.w700),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, FarmerLoginPage.route);
+                      },
                       child: const Text('Login',
                           style: TextStyle(
                               color: Colors.black,

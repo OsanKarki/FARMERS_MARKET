@@ -1,3 +1,4 @@
+import 'package:agriculture_app/features/auth/login_page/farmer_login_page/farmer_login_page.dart';
 import 'package:agriculture_app/features/auth/signup_page/otp_verification_page.dart';
 import 'package:flutter/material.dart';
 
@@ -218,7 +219,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           fontWeight: FontWeight.w700),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, FarmerLoginPage.route);
+                      },
                       child: const Text('Login',
                           style: TextStyle(
                               color: Colors.black,

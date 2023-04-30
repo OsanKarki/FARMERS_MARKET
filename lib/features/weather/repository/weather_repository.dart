@@ -14,7 +14,7 @@ class WeatherRepository {
 
     try {
       final response = await dio.get(
-          'https://api.openweathermap.org/data/2.5/weather?lat=27.71&lon=85.32&appid=9dc079c10f12c05fd35111f94b7cd311&units=metric');
+          'https://api.openweathermap.org/data/2.5/weather?lat=27.72&lon=85.33&appid=9dc079c10f12c05fd35111f94b7cd311&units=metric');
  final weatherModel = WeatherModel.fromJson(response.data);
 
 

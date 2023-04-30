@@ -1,4 +1,4 @@
-import 'package:agriculture_app/features/auth/login_page/login_page.dart';
+import 'package:agriculture_app/features/auth/login_page/farmer_login_page/farmer_login_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_sendtoserver_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_setting_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/drawer_localdata_page.dart';
@@ -94,7 +94,7 @@ class _MyDrawerNewState extends State<MyDrawerNew> {
 
                          case 4:
 
-                           Navigator.pushNamed(context, LoginPage.route);
+                           Navigator.pushNamed(context, FarmerLoginPage.route);
                            break;
 
                        }
