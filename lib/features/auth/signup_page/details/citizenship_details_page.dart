@@ -1,13 +1,13 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:agriculture_app/core/widgets/primary_text_field.dart';
+import 'package:agriculture_app/features/auth/signup_page/select_crops_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/button.dart';
-import '../../../core/utils/color_switch_text.dart';
+import '../../../../core/utils/button.dart';
+import '../../../../core/utils/color_switch_text.dart';
 
-import 'personal_details_page.dart';
 
 class CitizenshipDetailsPage extends StatefulWidget {
   static const route = 'CitizenshipDetailsPage';
@@ -260,8 +260,10 @@ class _CitizenshipDetailsPageState extends State<CitizenshipDetailsPage> {
                         ),
                         Expanded(
                             child: PrimaryButton(
-                          text: 'Save',
-                          onPressed: () {},
+                          text: 'Continue',
+                          onPressed: () {
+                            Navigator.pushNamed(context, SelectCropsPage.route);
+                          },
                           borderRadius: 20,
                         )),
                       ],

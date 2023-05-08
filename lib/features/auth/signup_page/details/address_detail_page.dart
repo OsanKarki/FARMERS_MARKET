@@ -1,12 +1,12 @@
 import 'package:agriculture_app/core/config/size_config.dart';
 import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/color_switch_text.dart';
-import 'package:agriculture_app/features/auth/signup_page/personal_details_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/details/personal_details_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/primary_app_bar.dart';
-import '../../../core/widgets/primary_text_field.dart';
-import '../../mainpage/drawer/drawer_screen.dart';
+import '../../../../core/utils/primary_app_bar.dart';
+import '../../../../core/widgets/primary_text_field.dart';
+import '../../../mainpage/drawer/drawer_screen.dart';
 
 class AddressDetailsPage extends StatefulWidget {
   static const route = 'AddressDetailsPage';

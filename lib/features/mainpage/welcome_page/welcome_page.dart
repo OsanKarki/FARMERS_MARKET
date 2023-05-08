@@ -1,7 +1,8 @@
+import 'package:agriculture_app/core/utils/routes.dart';
 import 'package:agriculture_app/features/auth/login_page/farmer_login_page/farmer_login_page.dart';
-import 'package:agriculture_app/features/auth/signup_page/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../../core/utils/button.dart';
 
@@ -62,24 +63,21 @@ class WelcomePage extends StatelessWidget {
                 Expanded(
                   child: PrimaryButton(
                     height: 18,
-
                     text: 'Login',
                     onPressed: () {
                       Navigator.pushNamed(context, FarmerLoginPage.route);
                     },
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 30,
-
-                ),//login-button
+                ), //login-button
                 Expanded(
                   child: PrimaryButton(
                     height: 18,
-
                     text: 'Signup',
                     onPressed: () {
-                      Navigator.pushNamed(context, SignUpPage.route);
+                      Get.toNamed(AppRoutes.farmerSignPage);
                     },
                   ),
                 ), //signup button

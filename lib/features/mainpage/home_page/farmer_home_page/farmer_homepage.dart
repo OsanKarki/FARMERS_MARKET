@@ -12,7 +12,6 @@ class FarmerHomePage extends StatefulWidget {
 
   const FarmerHomePage({Key? key}) : super(key: key);
 
-
   @override
   State<FarmerHomePage> createState() => _HomePageState();
 }
@@ -35,7 +34,7 @@ class _HomePageState extends State<FarmerHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        height:85,
+        height: 85,
         backgroundColor: const Color(0xffA4DACB),
         selectedIndex: index,
         animationDuration: const Duration(seconds: 1),
@@ -44,7 +43,6 @@ class _HomePageState extends State<FarmerHomePage> {
           NavigationDestination(
             icon: buildNavLogo(AssetUtils.navHome),
             label: 'Your Crops',
-
           ),
           NavigationDestination(
             icon: buildNavLogo(AssetUtils.navMarket),
@@ -53,11 +51,8 @@ class _HomePageState extends State<FarmerHomePage> {
           NavigationDestination(
             icon: buildNavLogo(AssetUtils.navUser),
             label: 'User',
-
           ),
-
         ],
-
       ),
       appBar: PrimaryAppBar(
         backgroundColor: const Color(0xffA4DACB),
@@ -93,7 +88,6 @@ class _HomePageState extends State<FarmerHomePage> {
         automaticallyImplyLeading: false,
       ),
       body: screens[index],
-
     );
   }
 

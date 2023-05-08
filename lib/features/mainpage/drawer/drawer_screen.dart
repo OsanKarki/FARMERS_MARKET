@@ -2,7 +2,7 @@ import 'package:agriculture_app/features/auth/login_page/farmer_login_page/farme
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_sendtoserver_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/Drawer_setting_page.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_list_Page/drawer_localdata_page.dart';
-import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/details/address_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawerNew extends StatefulWidget {

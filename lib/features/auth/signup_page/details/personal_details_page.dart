@@ -3,11 +3,11 @@ import 'package:agriculture_app/core/utils/button.dart';
 import 'package:agriculture_app/core/utils/primary_app_bar.dart';
 import 'package:agriculture_app/features/mainpage/drawer/drawer_screen.dart';
 import 'package:agriculture_app/core/widgets/no_of_children_dropdown.dart';
-import 'package:agriculture_app/features/auth/signup_page/citizenship_details_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/details/citizenship_details_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/color_switch_text.dart';
-import '../../../core/widgets/primary_text_field.dart';
+import '../../../../core/utils/color_switch_text.dart';
+import '../../../../core/widgets/primary_text_field.dart';
 import 'address_detail_page.dart';
 
 class PersonalDetailsPage extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:agriculture_app/features/auth/login_page/government_login_page/Government_login_page.dart';
-import 'package:agriculture_app/features/auth/signup_page/address_detail_page.dart';
+import 'package:agriculture_app/features/auth/signup_page/details/address_detail_page.dart';
 import 'package:agriculture_app/features/auth/signup_page/sign_up_page.dart';
 import 'package:agriculture_app/features/mainpage/home_page/farmer_home_page/farmer_homepage.dart';
 import 'package:flutter/material.dart';

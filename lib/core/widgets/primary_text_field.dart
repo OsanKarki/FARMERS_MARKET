@@ -8,6 +8,8 @@ class PrimaryTextField extends StatefulWidget {
   final IconData? suffixIcon;
   final IconData? prefixIcon;
   final TextInputType? keyboardType;
+  final double borderRadius;
+  final TextEditingController? numberController;
 
   const PrimaryTextField({
     super.key,
@@ -18,7 +20,7 @@ class PrimaryTextField extends StatefulWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.keyboardType,
-
+    this.borderRadius = 11,  this.numberController,
   });
 
   @override
@@ -26,12 +28,9 @@ class PrimaryTextField extends StatefulWidget {
 }
 
 class _PrimaryTextFieldState extends State<PrimaryTextField> {
-
   bool isHidden = true;
 
-
   @override
-
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -52,7 +51,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
         Container(
             padding: const EdgeInsets.only(top: 1),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(13),
+                borderRadius: BorderRadius.circular(widget.borderRadius),
                 color: Colors.white,
                 boxShadow: const [
                   BoxShadow(blurRadius: 3, offset: Offset(0, 2)),
@@ -64,6 +63,8 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                       blurRadius: 3, color: Colors.white, offset: Offset(3, 0)),
                 ]),
             child: TextFormField(
+              controller:widget.numberController,
+
               keyboardType: widget.keyboardType ?? TextInputType.text,
               obscureText: widget.isPassword ? isHidden : false,
               decoration: InputDecoration(
@@ -85,7 +86,6 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                           color: Colors.black38,
                         ))
                     : null,
-
                 contentPadding: EdgeInsets.symmetric(
                     vertical: widget.height, horizontal: 10),
                 hintText: widget.hintText,
@@ -95,7 +95,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                     borderSide:
                         const BorderSide(color: Color(0xFF35BC88), width: 1.6)),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(11),
+                  borderRadius: BorderRadius.circular(widget.borderRadius),
                   borderSide: const BorderSide(
                     width: 1.6,
                   ),
