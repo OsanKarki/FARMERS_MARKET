@@ -43,7 +43,7 @@ class AppRoutes{
     GetPage(name: farmerSignPage, page:()=> const SignUpPage(),bindings:[SignUPBindings()] ),
     GetPage(name: farmerHomePage, page:()=> const FarmerHomePage()),
     GetPage(name: governmentHomePage, page:()=> const GovernmentHomePage()),
-    GetPage(name: otpVerificationPage, page:()=> const OtpVerificationPage(),bindings:[SignUPBindings()]),
+    GetPage(name: otpVerificationPage, page:()=> const OtpVerificationPage()),
     GetPage(name: setPasswordPage, page:()=> const SetPasswordPage()),
     GetPage(name: addressDetailsPage, page:()=> const AddressDetailsPage()),
     GetPage(name: personalDetailsPage, page:()=> const PersonalDetailsPage()),

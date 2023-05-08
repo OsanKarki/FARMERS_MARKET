@@ -1,9 +1,12 @@
 class SuccessResponse {
-  String? message;
+  String message;
 
-  SuccessResponse({ this.message});
+  SuccessResponse({required this.message});
 
-  SuccessResponse.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
-  }
+  SuccessResponse.fromJson(Map<String, dynamic> json)
+      : message = json['message'] ?? '';
+
+  Map<String, dynamic> toJson() => {
+    'message': message,
+  };
 }

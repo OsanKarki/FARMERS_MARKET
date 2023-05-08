@@ -146,7 +146,7 @@ class SetPasswordPage extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: const Text('Create Account',
+                            child: const Text('Login',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,

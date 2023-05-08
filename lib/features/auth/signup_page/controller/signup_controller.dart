@@ -39,7 +39,7 @@ class SignUpController extends GetxController {
     isLoading.value = true;
     signupOtpResponse =
         await Get.find<SignUpRepository>().farmerSignupOtp(farmerSignupOtp);
-    if (signupOtpResponse.hasData) {print("@@@@@@@@@@@@@@22");
+    if (signupOtpResponse.hasData) {
       final message = signupOtpResponse.data;
       final data = SuccessResponse.fromJson(message);
       isLoading.value = false;
